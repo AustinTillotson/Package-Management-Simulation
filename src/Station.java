@@ -7,5 +7,14 @@
         Class: Station
  */
 
-public class Station {
+import java.util.Random;
+
+public class Station implements Runnable {
+    private static Random generator = new Random();
+    public Station () { // constructor
+        
+    }
+    public void run() {
+        // to do
+    }
 }
