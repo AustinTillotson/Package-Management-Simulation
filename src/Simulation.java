@@ -25,7 +25,6 @@ public class Simulation
             numStations = scanInput.nextInt();
             ExecutorService application = Executors.newFixedThreadPool(numStations);
             for(int i = 0; i < numStations; i++) {
-                System.out.printf("%d\n", scanInput.nextInt());
                 try
                 {
                     application.execute(new Station(scanInput.nextInt(), i));
@@ -33,6 +32,7 @@ public class Simulation
                     executorException.printStackTrace();
                 }
             }
+            application.shutdown();
         } catch (FileNotFoundException fileException) {
             System.out.println("Error: Config file not found.\n");
             fileException.printStackTrace();
