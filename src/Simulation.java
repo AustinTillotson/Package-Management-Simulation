@@ -10,19 +10,23 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Simulation
 {
     public static void main(String[] args)
     {
         int numStations = 0;
-        try 
+        try
         { // config setup
             File input = new File("config.txt");
             Scanner scanInput = new Scanner(input);
             numStations = scanInput.nextInt();
+            ExecutorService application = Executors.newFixedThreadPool(numStations);
             for(int i = 0; i < numStations; i++) {
                 System.out.printf("%d\n", scanInput.nextInt());
+                application.execute(new Station(scanInput.nextInt(), i));
             }
         } catch (FileNotFoundException e) {
             System.out.println("Error: Config file not found.\n");

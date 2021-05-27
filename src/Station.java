@@ -11,10 +11,14 @@ import java.util.Random;
 
 public class Station implements Runnable {
     private static Random generator = new Random();
-    public Station () { // constructor
-        
+    private int totalPackages;
+    private int stationNum;
+    public Station (int packages, int station) { // constructor
+        totalPackages = packages;
+        stationNum = station;
     }
     public void run() {
         // to do
+        System.out.printf("Total packages to deliver at station %d: %d\n", stationNum, totalPackages);
     }
 }
