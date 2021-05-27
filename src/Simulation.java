@@ -11,10 +11,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class Simulation {
-    public static void main(String[] args) {
+public class Simulation
+{
+    public static void main(String[] args)
+    {
         int numStations = 0;
-        try {
+        try 
+        { // config setup
             File input = new File("config.txt");
             Scanner scanInput = new Scanner(input);
             numStations = scanInput.nextInt();
