@@ -24,11 +24,20 @@ public class Conveyor {
 
     // needed methods: requestConveyor and releaseConveyor
     // requestConveyor:
+    public boolean requestConveyor() {
         // use tryLock
         // return true if lock was acquired
+        if(lock.tryLock())
+            return true;
         // return false if lock is not free
+        else
+            return false;
+    }
 
     // releaseConveyor: release the lock
+    public void releaseConveyor() {
+        lock.unlock();
+    }
 
     /*public int test() {
         return conveyorNumber;
