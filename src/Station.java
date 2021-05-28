@@ -13,16 +13,16 @@ public class Station implements Runnable {
     private static Random generator = new Random();
     private int totalPackages;
     private int stationNum;
-    private int inputConveyor;
-    private  int outputConveyor;
-    public Station (int packages, int station, int output) { // constructor
+    private Conveyor inputConveyor;
+    private  Conveyor outputConveyor;
+    public Station (int packages, int number, Conveyor input, Conveyor output) { // constructor
         totalPackages = packages;
-        stationNum = station;
-        inputConveyor = station;
+        stationNum = number;
+        inputConveyor = input;
         outputConveyor = output;
     }
     public void run() {
         // to do
-        System.out.printf("Total packages to deliver at station %d: %d\nInput conveyor is %d and output is %d\n", stationNum, totalPackages, inputConveyor, outputConveyor);
+        System.out.printf("I am Station %d. I have %d packages to move. My conveyors are %d and %d.\n", stationNum, totalPackages, inputConveyor.test(), outputConveyor.test());
     }
 }

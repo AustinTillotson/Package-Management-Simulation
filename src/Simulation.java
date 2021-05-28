@@ -23,11 +23,21 @@ public class Simulation
             File input = new File("config.txt");
             Scanner scanInput = new Scanner(input);
             numStations = scanInput.nextInt();
+            // create thread pool of size equalling number of stations in config
             ExecutorService application = Executors.newFixedThreadPool(numStations);
+
+            // creates array of conveyors
+            Conveyor[] conveyors = new Conveyor[numStations];
+
+            // fills array with conveyors
+            for(int i = 0; i < numStations; i++) {
+                conveyors[i] = new Conveyor(i);
+            }
+            // creates stations
             for(int i = 0; i < numStations; i++) {
                 try
-                {
-                    application.execute(new Station(scanInput.nextInt(), i, ((i + numStations - 1) % numStations)));
+                { // starts station threads using station constructor
+                    application.execute(new Station(scanInput.nextInt(), i, conveyors[i], conveyors[(i + numStations - 1) % numStations]));
                 } catch (Exception executorException) {
                     executorException.printStackTrace();
                 }

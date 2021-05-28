@@ -8,13 +8,20 @@
  */
 
 import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class Conveyor {
+
     private int conveyorNumber;
-    private Lock lock;
+
+    // create conveyor lock
+    private Lock lock = new ReentrantLock();
 
     public Conveyor(int number) {
         conveyorNumber = number;
-        // lock
+    }
+
+    public int test() {
+        return conveyorNumber;
     }
 }
