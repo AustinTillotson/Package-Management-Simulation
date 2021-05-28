@@ -39,6 +39,51 @@ public class Station implements Runnable {
     }
 
     // do work method
+    public void doWork() {
+
+        // print messages and do work as following describes
+
+        // flow package from input conveyor to station
+        // 9) println that package moved from input to station
+        System.out.printf("Station %d: . . . Active. . . moving packages into station on input conveyor C%d.\n", stationNum, inputConveyor.conveyorNumber);
+
+        // flow package from output conveyor to station
+        // 10) println that package moved from station to output
+        System.out.printf("Station %d: . . .Active. . .moving packages out of station on output conveyor C%d.\n", stationNum, outputConveyor.conveyorNumber);
+
+        // decrement package counter
+
+        // reduce number of packages left by 1
+        // 11) println that package successfully moved through the system
+        workloadCounter--;
+        System.out.printf("Station %d: Number of packages groups left to move is: %d.\n", stationNum, workloadCounter);
+
+        //// sleep thread maybe
+    }
+
+    public void run() {
+        // to do
+
+        // 1,2) add println for input and output conveyor connections for station X
+        // 3) add println for workload set of station X
+
+        // loop till counter is zero
+        while(workloadCounter > 0) {
+            // set variable that station has both locks to false
+            // loop while station does not have locks
+            // try to get input lock
+            // try to get output lock
+            // if both locks, set variable to true
+            // doWork
+            doWork();
+            // release both locks, set variable
+            // print messages
+            // else
+            // print messages
+            // sleep station
+        }
+
+        // end loops
 
         // print messages and do work as following describes
         // decrement package counter
@@ -58,38 +103,8 @@ public class Station implements Runnable {
         // release output Conveyor Lock
         // 8) println that output lock was released
 
-        // flow package from input conveyor to station
-        // 9) println that package moved from input to station
-
-        // flow package from output conveyor to station
-        // 10) println that package moved from station to output
-
-        // reduce number of packages left by 1
-        // 11) println that package successfully moved through the system
-
         // put thread to sleep if workload is done
         // 12) println that station has completed workload
-
-    public void run() {
-        // to do
-
-        // 1,2) add println for input and output conveyor connections for station X
-        // 3) add println for workload set of station X
-
-        // loop till counter is zero
-            // set variable that station has both locks to false
-            // loop while station does not have locks
-                // try to get input lock
-                    // try to get output lock
-                        // if both locks, set variable to true
-                            // doWork
-                            // release both locks, set variable
-                            // print messages
-                        // else
-                            // print messages
-                            // sleep station
-
-        // end loops
 
         //System.out.printf("I am Station %d. I have %d packages to move. My conveyors are %d and %d.\n", stationNum, totalPackages, inputConveyor.test(), outputConveyor.test());
     }
