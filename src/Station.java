@@ -81,6 +81,7 @@ public class Station implements Runnable {
             // else
             // print messages
             // sleep station
+            putToSleep();
         }
 
         // end loops
