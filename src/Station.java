@@ -10,19 +10,80 @@
 import java.util.Random;
 
 public class Station implements Runnable {
-    private static Random generator = new Random();
-    private int totalPackages;
-    private int stationNum;
-    private Conveyor inputConveyor;
-    private  Conveyor outputConveyor;
-    public Station (int packages, int number, Conveyor input, Conveyor output) { // constructor
-        totalPackages = packages;
+
+    protected static int MAXSLEEP = 500;
+
+    protected static Random sleepTime = new Random();
+    protected int workload;
+    protected int workloadCounter;
+    protected int stationNum;
+    protected Conveyor inputConveyor;
+    protected  Conveyor outputConveyor;
+
+    // constructor
+    public Station (int packages, int number, Conveyor input, Conveyor output) {
+        workload = packages;
+        workloadCounter = packages;
         stationNum = number;
         inputConveyor = input;
         outputConveyor = output;
     }
+
+    // sleep method using random
+
+    // do work method
+
+        // print messages and do work as following describes
+        // decrement package counter
+        // sleep thread
+
+        // acquire input Conveyor Lock
+        // 4) println that Lock was acquired
+
+        // acquire output Conveyor Lock
+        // 5) println that Lock was acquired
+        // if lock could not be acquired, free input lock
+        // 7) println that lock was not acquired and input lock was freed
+
+        // release input Conveyor Lock
+        // 6) println that input lock was released
+
+        // release output Conveyor Lock
+        // 8) println that output lock was released
+
+        // flow package from input conveyor to station
+        // 9) println that package moved from input to station
+
+        // flow package from output conveyor to station
+        // 10) println that package moved from station to output
+
+        // reduce number of packages left by 1
+        // 11) println that package successfully moved through the system
+
+        // put thread to sleep if workload is done
+        // 12) println that station has completed workload
+
     public void run() {
         // to do
-        System.out.printf("I am Station %d. I have %d packages to move. My conveyors are %d and %d.\n", stationNum, totalPackages, inputConveyor.test(), outputConveyor.test());
+
+        // 1,2) add println for input and output conveyor connections for station X
+        // 3) add println for workload set of station X
+
+        // loop till counter is zero
+            // set variable that station has both locks to false
+            // loop while station does not have locks
+                // try to get input lock
+                    // try to get output lock
+                        // if both locks, set variable to true
+                            // doWork
+                            // release both locks, set variable
+                            // print messages
+                        // else
+                            // print messages
+                            // sleep station
+
+        // end loops
+
+        //System.out.printf("I am Station %d. I have %d packages to move. My conveyors are %d and %d.\n", stationNum, totalPackages, inputConveyor.test(), outputConveyor.test());
     }
 }

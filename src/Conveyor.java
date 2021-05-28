@@ -17,11 +17,20 @@ public class Conveyor {
     // create conveyor lock
     private Lock lock = new ReentrantLock();
 
+    // constructor
     public Conveyor(int number) {
         conveyorNumber = number;
     }
 
-    public int test() {
+    // needed methods: requestConveyor and releaseConveyor
+    // requestConveyor:
+        // use tryLock
+        // return true if lock was acquired
+        // return false if lock is not free
+
+    // releaseConveyor: release the lock
+
+    /*public int test() {
         return conveyorNumber;
-    }
+    }*/
 }

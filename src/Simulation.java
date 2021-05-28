@@ -23,6 +23,7 @@ public class Simulation
             File input = new File("config.txt");
             Scanner scanInput = new Scanner(input);
             numStations = scanInput.nextInt();
+
             // create thread pool of size equalling number of stations in config
             ExecutorService application = Executors.newFixedThreadPool(numStations);
 
@@ -43,8 +44,9 @@ public class Simulation
                 }
             }
             while(!application.isTerminated()) {
-                // loop till threads terminate
+                // simulation is ongoing
             }
+            // simulation terminates
             application.shutdown();
         } catch (FileNotFoundException fileException) {
             System.out.println("Error: Config file not found.\n");
