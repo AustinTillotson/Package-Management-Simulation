@@ -20,6 +20,8 @@ public class Simulation
         int numStations = 0;
         try
         { // config setup
+            System.out.println("\n CNT 4714 - Project 1 - Summer 2021 \n");
+            System.out.println("\n * * * SIMULATION BEGINS * * * \n");
             File input = new File("config.txt");
             Scanner scanInput = new Scanner(input);
             numStations = scanInput.nextInt();
