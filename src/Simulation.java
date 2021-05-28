@@ -27,10 +27,13 @@ public class Simulation
             for(int i = 0; i < numStations; i++) {
                 try
                 {
-                    application.execute(new Station(scanInput.nextInt(), i));
+                    application.execute(new Station(scanInput.nextInt(), i, ((i + numStations - 1) % numStations)));
                 } catch (Exception executorException) {
                     executorException.printStackTrace();
                 }
+            }
+            while(!application.isTerminated()) {
+                // loop till threads terminate
             }
             application.shutdown();
         } catch (FileNotFoundException fileException) {
