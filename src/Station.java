@@ -30,6 +30,13 @@ public class Station implements Runnable {
     }
 
     // sleep method using random
+    public void putToSleep() {
+        try {
+            Thread.sleep(sleepTime.nextInt(MAXSLEEP-1+1)+1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
     // do work method
 
