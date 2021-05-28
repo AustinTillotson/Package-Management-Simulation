@@ -7,5 +7,14 @@
         Class: Conveyor
  */
 
+import java.util.concurrent.locks.Lock;
+
 public class Conveyor {
+    private int conveyorNumber;
+    private Lock lock;
+
+    public Conveyor(int number) {
+        conveyorNumber = number;
+        // lock
+    }
 }
