@@ -12,7 +12,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class Conveyor {
 
-    private int conveyorNumber;
+    int conveyorNumber;
 
     // create conveyor lock
     private Lock lock = new ReentrantLock();
