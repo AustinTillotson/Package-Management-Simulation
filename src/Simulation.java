@@ -50,6 +50,8 @@ public class Simulation
                 // simulation is ongoing
             }
             // simulation terminates
+            System.out.println("\n * * * * ALL WORKLOADS COMPLETE * * * * SIMULATION ENDS * * * *");
+
         } catch (FileNotFoundException fileException) {
             System.out.println("Error: Config file not found.\n");
             fileException.printStackTrace();
