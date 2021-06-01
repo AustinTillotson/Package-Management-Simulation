@@ -45,11 +45,11 @@ public class Simulation
                     executorException.printStackTrace();
                 }
             }
+            application.shutdown();
             while(!application.isTerminated()) {
                 // simulation is ongoing
             }
             // simulation terminates
-            application.shutdown();
         } catch (FileNotFoundException fileException) {
             System.out.println("Error: Config file not found.\n");
             fileException.printStackTrace();
