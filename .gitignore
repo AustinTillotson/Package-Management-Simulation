@@ -2,6 +2,7 @@
 config.txt
 config1.txt
 config2.txt
+output.txt
 
 #intellij
 .idea
