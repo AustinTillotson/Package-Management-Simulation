@@ -58,7 +58,8 @@ public class Station implements Runnable {
         workloadCounter--;
         System.out.printf("Station %d: Number of packages groups left to move is: %d.\n", stationNum, workloadCounter);
 
-        //// sleep thread maybe
+        // sleep thread
+        putToSleep();
     }
 
     public void run() {
