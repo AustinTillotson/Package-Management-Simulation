@@ -44,9 +44,6 @@ public class Station implements Runnable {
         System.out.printf("Station %d: . . . Active . . . moving packages out of station on output conveyor C%d.\n", stationNum, outputConveyor.conveyorNumber);
         workloadCounter--;
         System.out.printf("Station %d: Number of packages groups left to move is: %d.\n", stationNum, workloadCounter);
-
-        // sleep thread
-        putToSleep();
     }
 
     public void run() {
@@ -71,13 +68,15 @@ public class Station implements Runnable {
                                 stationNum, outputConveyor.conveyorNumber);
                         // both Locks are claimed
                         acquiredLocks = true;
-                        // move package and sleep
+                        // move packages
                         doWork();
                         // release locks
                         inputConveyor.releaseConveyor();
                         System.out.printf("Station %d: Unlocks input conveyor C%d.\n", stationNum, inputConveyor.conveyorNumber);
                         outputConveyor.releaseConveyor();
                         System.out.printf("Station %d: Unlocks output conveyor C%d.\n", stationNum, outputConveyor.conveyorNumber);
+                        // sleep thread
+                        putToSleep();
                     }
                     // Deadlock avoidance scenario
                     // Output lock could not be claimed - release input lock
