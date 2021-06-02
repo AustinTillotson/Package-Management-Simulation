@@ -45,6 +45,7 @@ public class Simulation
                     executorException.printStackTrace();
                 }
             }
+            // run simulation
             application.shutdown();
             while(!application.isTerminated()) {
                 // simulation is ongoing
@@ -56,5 +57,5 @@ public class Simulation
             System.out.println("Error: Config file not found.\n");
             fileException.printStackTrace();
         }
-    }
+    } // end of main
 }

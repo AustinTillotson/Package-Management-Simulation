@@ -22,24 +22,18 @@ public class Conveyor {
         conveyorNumber = number;
     }
 
-    // needed methods: requestConveyor and releaseConveyor
-    // requestConveyor:
+    // request Lock method
     public boolean requestConveyor() {
-        // use tryLock
-        // return true if lock was acquired
+        // Lock is available - get lock and return true
         if(lock.tryLock())
             return true;
-        // return false if lock is not free
+        // Lock is not available - return false
         else
             return false;
     }
 
-    // releaseConveyor: release the lock
+    // release Lock method
     public void releaseConveyor() {
         lock.unlock();
     }
-
-    /*public int test() {
-        return conveyorNumber;
-    }*/
 }
